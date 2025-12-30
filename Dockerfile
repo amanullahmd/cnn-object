@@ -2,7 +2,7 @@ FROM python:3.10-slim
 
 WORKDIR /app
 
-# Install system dependencies
+# Install system dependencies (no tkinter needed)
 RUN apt-get update && apt-get install -y \
     libsm6 \
     libxext6 \
@@ -22,6 +22,10 @@ COPY best_model.pth .
 # Set environment variables
 ENV PYTHONUNBUFFERED=1
 ENV PYTHONDONTWRITEBYTECODE=1
+ENV FLASK_APP=src/app.py
 
-# Run the GUI application
-CMD ["python", "src/predict_gui.py"]
+# Expose port
+EXPOSE 5000
+
+# Run the Flask app
+CMD ["python", "src/app.py"]
