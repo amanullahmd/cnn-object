@@ -189,4 +189,4 @@ This project fulfills all requirements of Übungsblatt 2:
 
 **Course**: Einführung ins Deep Learning  
 **Semester**: WiSe 25/26  
-**Institution**: Technische Hochschule Mittelhessen (THM)
+**Institution**: Technische Hochschule Mittelhessen (THM) Giessen
