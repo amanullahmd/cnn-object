@@ -1,0 +1,30 @@
+Übungsblatt 2
+ Einführung ins Deep Learning
+ Abgabe: 09. Dezember 2025
+ In diesem Übungblatt geht es um Bildklassifizierung. Sie werden ein Convolutional Neural
+ Network (CNN) implementieren und auf einem selbst erstellten Datensatz trainieren.
+ Aufgabe 1: Datensatz
+ Um einen Klassifikator trainieren zu können, benötigen Sie zuerst einen Datensatz. Ihr Da
+tensatz soll folgende Klassen beinhalten:
+ • Tasse
+ • Messer
+ • Stift
+ • Kochtopf
+ Nehmen Sie von jeder Klasse mindestens 100 Bilder auf. Achten Sie darauf, dass Ihre Bilder
+ möglichst viel Varianz in Bezug auf Lichtverhältnisse, Hintergründe und die Objekte selbst
+ aufweisen.
+ Aufgabe 2: Neuronales Netz
+ Implementieren Sie ein CNN, das RGB-Bilder klassifizieren kann. Sie können dabei auf be
+stehende Netzarchitekturen zurückgreifen. Recherchieren Sie zunächst welche (einfachen) Ar
+chitekturen es gibt und entwerfen Sie im Anschluss Ihr Netz.
+ Hinweis: Falls Sie sich unsicher sind, was Geeignetheit oder Implementierungsaufwand angeht,
+ holen Sie sich gerne Rat im Übungscoaching.
+ 
+Einführung ins Deep Learning (WS 23/24)
+ Aufgabe 3: Training und Evaluierung
+ Trainieren Sie Ihr implementiertes Modell auf Ihrem zuvor erstellten Datensatz und evalui
+ern sie seine Leistung mit geeigneten Metriken. Können Sie Grenzfälle (corner cases) iden
+tifizieren, bei denen Ihr Netz schlechter funktioniert? Versuchen Sie ggf. die Leistung durch
+ Änderungen am Netz und/oder Datensatz zu verbessern.
+ Beim Präsentationstermin werden wir Ihr Netz mit je einem von uns mitgebrachten Gegen
+stand der oben genannten Klassen testen
