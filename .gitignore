@@ -3,9 +3,10 @@ EiDL_CNN_WiSe_25_26/
 EiDL_TestData_WiSe25/
 dataset/
 
-# Model files (too large for git)
+# Model files (too large for git) - EXCEPT best_model.pth which we need for deployment
 *.pth
 *.pt
+!best_model.pth
 
 # Python
 __pycache__/
