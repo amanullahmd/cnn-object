@@ -4,6 +4,6 @@
     "builder": "dockerfile"
   },
   "deploy": {
-    "startCommand": "python src/predict_gui.py"
+    "startCommand": "python src/app.py"
   }
 }
