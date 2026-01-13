@@ -25,7 +25,7 @@
             background: white;
             border-radius: 20px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            max-width: 600px;
+            max-width: 700px;
             width: 100%;
             padding: 40px;
         }
@@ -42,6 +42,82 @@
             color: #666;
             margin-bottom: 30px;
             font-size: 1.1em;
+        }
+        
+        /* Remark Card - Red Warning Style */
+        .remark-card {
+            background: linear-gradient(135deg, #fff5f5 0%, #ffe0e0 100%);
+            border-left: 5px solid #ff6b6b;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.2);
+        }
+        
+        .remark-title {
+            color: #d63031;
+            font-weight: bold;
+            font-size: 1.15em;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .remark-icon {
+            font-size: 1.3em;
+        }
+        
+        .remark-content {
+            color: #c92a2a;
+            font-size: 0.95em;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .test-objects {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+        
+        .test-object {
+            background: white;
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+            color: #333;
+            border: 2px solid #ff6b6b;
+            transition: all 0.3s ease;
+        }
+        
+        .test-object:hover {
+            background: #fff5f5;
+            transform: translateY(-2px);
+        }
+        
+        .test-object-emoji {
+            font-size: 1.8em;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .test-object-name {
+            font-size: 0.9em;
+        }
+        
+        .error {
+            background: #ffebee;
+            color: #c62828;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: none;
+        }
+        
+        .error.show {
+            display: block;
         }
         
         .upload-area {
@@ -102,7 +178,7 @@
             display: none;
             background: #f8f9ff;
             border-radius: 15px;
-            padding: 20px;
+            padding: 25px;
             margin-bottom: 20px;
         }
         
@@ -123,24 +199,26 @@
         }
         
         .prediction {
-            font-size: 1.8em;
+            font-size: 2em;
             font-weight: bold;
             color: #667eea;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            text-align: center;
         }
         
         .confidence {
             font-size: 1.2em;
             color: #666;
             margin-bottom: 15px;
+            text-align: center;
         }
         
         .confidence-bar {
             background: #e0e0e0;
             border-radius: 10px;
-            height: 10px;
+            height: 12px;
             overflow: hidden;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
         
         .confidence-fill {
@@ -160,8 +238,10 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 10px;
-            padding: 8px 0;
+            padding: 10px;
             border-bottom: 1px solid #eee;
+            border-radius: 5px;
+            background: #f8f9ff;
         }
         
         .prob-item:last-child {
@@ -170,7 +250,7 @@
         }
         
         .prob-name {
-            font-weight: 500;
+            font-weight: 600;
             color: #333;
             text-transform: capitalize;
         }
@@ -178,6 +258,7 @@
         .prob-value {
             color: #667eea;
             font-weight: bold;
+            font-size: 1.1em;
         }
         
         .button-group {
@@ -237,19 +318,6 @@
             100% { transform: rotate(360deg); }
         }
         
-        .error {
-            background: #ffebee;
-            color: #c62828;
-            padding: 15px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            display: none;
-        }
-        
-        .error.show {
-            display: block;
-        }
-        
         .status {
             text-align: center;
             color: #999;
@@ -262,6 +330,35 @@
     <div class="container">
         <h1>🎯 CNN Classifier</h1>
         <p class="subtitle">Classify household objects with AI</p>
+        
+        <!-- Remark Card -->
+        <div class="remark-card">
+            <div class="remark-title">
+                <span class="remark-icon">⚠️</span>
+                Test with These Objects
+            </div>
+            <div class="remark-content">
+                This model is trained to recognize only these 4 household objects. For best results, upload clear images of:
+            </div>
+            <div class="test-objects">
+                <div class="test-object">
+                    <span class="test-object-emoji">🍲</span>
+                    <span class="test-object-name">Cooking Pot</span>
+                </div>
+                <div class="test-object">
+                    <span class="test-object-emoji">☕</span>
+                    <span class="test-object-name">Cup</span>
+                </div>
+                <div class="test-object">
+                    <span class="test-object-emoji">🔪</span>
+                    <span class="test-object-name">Knife</span>
+                </div>
+                <div class="test-object">
+                    <span class="test-object-emoji">✏️</span>
+                    <span class="test-object-name">Pen</span>
+                </div>
+            </div>
+        </div>
         
         <div class="error" id="error"></div>
         
