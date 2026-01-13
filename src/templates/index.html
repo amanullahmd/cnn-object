@@ -335,12 +335,17 @@
         <div class="remark-card">
             <div class="remark-title">
                 <span class="remark-icon">⚠️</span>
-                Test with These Objects
+                Model Capabilities & Limitations
             </div>
-            <div class="remark-content">
-                This model is trained to recognize only these 4 household objects. For best results, upload clear images of:
+            
+            <div style="margin-bottom: 15px;">
+                <div style="color: #d63031; font-weight: 600; margin-bottom: 8px;">✅ Model Can Predict:</div>
+                <div class="remark-content" style="margin-bottom: 0;">
+                    This model is trained on only these 4 household objects:
+                </div>
             </div>
-            <div class="test-objects">
+            
+            <div class="test-objects" style="margin-bottom: 15px;">
                 <div class="test-object">
                     <span class="test-object-emoji">🍲</span>
                     <span class="test-object-name">Cooking Pot</span>
@@ -356,6 +361,13 @@
                 <div class="test-object">
                     <span class="test-object-emoji">✏️</span>
                     <span class="test-object-name">Pen</span>
+                </div>
+            </div>
+            
+            <div style="border-top: 2px solid rgba(255, 107, 107, 0.3); padding-top: 12px;">
+                <div style="color: #d63031; font-weight: 600; margin-bottom: 8px;">❌ Model Cannot Predict:</div>
+                <div class="remark-content" style="margin-bottom: 0;">
+                    Any other objects not listed above will produce inaccurate results. The model has not been trained on other items and may give misleading predictions.
                 </div>
             </div>
         </div>
