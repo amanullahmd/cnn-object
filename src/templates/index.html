@@ -15,50 +15,156 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
+            padding: 0;
+        }
+        
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 25px 40px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-bottom: 3px solid #667eea;
+        }
+        
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .header h1 {
+            font-size: 2.2em;
+            color: #333;
+            margin-bottom: 5px;
             display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .header-subtitle {
+            color: #666;
+            font-size: 1em;
+        }
+        
+        /* Main Container */
+        .main-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            min-height: calc(100vh - 120px);
+        }
+        
+        /* Left Panel - Upload */
+        .left-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .upload-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .upload-section h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 1.3em;
+        }
+        
+        .upload-area {
+            border: 3px dashed #667eea;
+            border-radius: 12px;
+            padding: 50px 30px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: #f8f9ff;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 20px;
         }
         
-        .container {
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            max-width: 700px;
-            width: 100%;
-            padding: 40px;
+        .upload-area:hover {
+            border-color: #764ba2;
+            background: #f0f2ff;
+            transform: translateY(-2px);
         }
         
-        h1 {
-            text-align: center;
+        .upload-area.dragover {
+            border-color: #764ba2;
+            background: #e8ebff;
+            transform: scale(1.02);
+        }
+        
+        .upload-icon {
+            font-size: 4em;
+            margin-bottom: 15px;
+        }
+        
+        .upload-text {
             color: #333;
-            margin-bottom: 10px;
-            font-size: 2.5em;
+            font-size: 1.2em;
+            font-weight: 600;
+            margin-bottom: 8px;
         }
         
-        .subtitle {
+        .upload-hint {
+            color: #999;
+            font-size: 0.95em;
+        }
+        
+        #imageInput {
+            display: none;
+        }
+        
+        .image-preview {
+            display: none;
+            margin-top: 20px;
             text-align: center;
-            color: #666;
-            margin-bottom: 30px;
-            font-size: 1.1em;
         }
         
-        /* Remark Card - Red Warning Style */
+        .image-preview img {
+            max-width: 100%;
+            max-height: 400px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Right Panel - Info & Results */
+        .right-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .info-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Remark Card */
         .remark-card {
             background: linear-gradient(135deg, #fff5f5 0%, #ffe0e0 100%);
             border-left: 5px solid #ff6b6b;
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.2);
         }
         
         .remark-title {
             color: #d63031;
             font-weight: bold;
-            font-size: 1.15em;
-            margin-bottom: 12px;
+            font-size: 1.1em;
+            margin-bottom: 15px;
             display: flex;
             align-items: center;
             gap: 8px;
@@ -68,17 +174,28 @@
             font-size: 1.3em;
         }
         
+        .section-label {
+            color: #d63031;
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.95em;
+        }
+        
         .remark-content {
             color: #c92a2a;
-            font-size: 0.95em;
-            line-height: 1.6;
-            margin-bottom: 15px;
+            font-size: 0.9em;
+            line-height: 1.5;
+            margin-bottom: 12px;
         }
         
         .test-objects {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 10px;
+            margin-bottom: 15px;
         }
         
         .test-object {
@@ -90,6 +207,7 @@
             color: #333;
             border: 2px solid #ff6b6b;
             transition: all 0.3s ease;
+            font-size: 0.9em;
         }
         
         .test-object:hover {
@@ -103,114 +221,57 @@
             margin-bottom: 5px;
         }
         
-        .test-object-name {
-            font-size: 0.9em;
+        .divider {
+            border-top: 2px solid rgba(255, 107, 107, 0.3);
+            margin: 12px 0;
+            padding-top: 12px;
         }
         
-        .error {
-            background: #ffebee;
-            color: #c62828;
-            padding: 15px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            display: none;
-        }
-        
-        .error.show {
-            display: block;
-        }
-        
-        .upload-area {
-            border: 3px dashed #667eea;
-            border-radius: 15px;
-            padding: 40px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            background: #f8f9ff;
-            margin-bottom: 20px;
-        }
-        
-        .upload-area:hover {
-            border-color: #764ba2;
-            background: #f0f2ff;
-        }
-        
-        .upload-area.dragover {
-            border-color: #764ba2;
-            background: #e8ebff;
-        }
-        
-        .upload-icon {
-            font-size: 3em;
-            margin-bottom: 10px;
-        }
-        
-        .upload-text {
-            color: #666;
-            font-size: 1.1em;
-            margin-bottom: 10px;
-        }
-        
-        .upload-hint {
-            color: #999;
-            font-size: 0.9em;
-        }
-        
-        #imageInput {
-            display: none;
-        }
-        
-        .image-preview {
-            display: none;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        
-        .image-preview img {
-            max-width: 100%;
-            max-height: 300px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .result {
-            display: none;
-            background: #f8f9ff;
+        /* Result Card */
+        .result-card {
+            background: white;
             border-radius: 15px;
             padding: 25px;
-            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            display: none;
+            flex: 1;
         }
         
-        .result.show {
-            display: block;
-            animation: slideIn 0.3s ease;
+        .result-card.show {
+            display: flex;
+            flex-direction: column;
         }
         
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .result-title {
+            color: #333;
+            font-size: 1.1em;
+            font-weight: 600;
+            margin-bottom: 15px;
         }
         
         .prediction {
-            font-size: 2em;
+            font-size: 2.5em;
             font-weight: bold;
             color: #667eea;
-            margin-bottom: 15px;
             text-align: center;
+            margin-bottom: 20px;
         }
         
         .confidence {
-            font-size: 1.2em;
-            color: #666;
-            margin-bottom: 15px;
             text-align: center;
+            margin-bottom: 15px;
+        }
+        
+        .confidence-label {
+            color: #666;
+            font-size: 0.95em;
+            margin-bottom: 8px;
+        }
+        
+        .confidence-value {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #667eea;
         }
         
         .confidence-bar {
@@ -228,7 +289,7 @@
         }
         
         .probabilities {
-            background: white;
+            background: #f8f9ff;
             border-radius: 10px;
             padding: 15px;
         }
@@ -237,15 +298,14 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 10px;
             padding: 10px;
-            border-bottom: 1px solid #eee;
-            border-radius: 5px;
-            background: #f8f9ff;
+            margin-bottom: 8px;
+            background: white;
+            border-radius: 6px;
+            border-left: 3px solid #667eea;
         }
         
         .prob-item:last-child {
-            border-bottom: none;
             margin-bottom: 0;
         }
         
@@ -258,12 +318,55 @@
         .prob-value {
             color: #667eea;
             font-weight: bold;
-            font-size: 1.1em;
+            font-size: 1.05em;
         }
         
+        /* Loading */
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 30px;
+        }
+        
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 15px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .loading-text {
+            color: #666;
+            font-size: 1.05em;
+        }
+        
+        /* Error */
+        .error {
+            background: #ffebee;
+            color: #c62828;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            display: none;
+            border-left: 4px solid #c62828;
+        }
+        
+        .error.show {
+            display: block;
+        }
+        
+        /* Buttons */
         .button-group {
             display: flex;
-            gap: 10px;
+            gap: 12px;
             margin-top: 20px;
         }
         
@@ -271,8 +374,8 @@
             flex: 1;
             padding: 12px 20px;
             border: none;
-            border-radius: 10px;
-            font-size: 1em;
+            border-radius: 8px;
+            font-size: 0.95em;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -297,120 +400,135 @@
             background: #d0d0d0;
         }
         
-        .loading {
-            display: none;
-            text-align: center;
-            padding: 20px;
-        }
-        
-        .spinner {
-            border: 4px solid #f3f3f3;
-            border-top: 4px solid #667eea;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 10px;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
+        /* Status */
         .status {
             text-align: center;
             color: #999;
             font-size: 0.9em;
-            margin-top: 20px;
+            margin-top: 15px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .main-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 20px;
+            }
+            
+            .header {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 1.8em;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>🎯 CNN Classifier</h1>
-        <p class="subtitle">Classify household objects with AI</p>
-        
-        <!-- Remark Card -->
-        <div class="remark-card">
-            <div class="remark-title">
-                <span class="remark-icon">⚠️</span>
-                Model Capabilities & Limitations
+    <!-- Header -->
+    <div class="header">
+        <div class="header-content">
+            <h1>🎯 CNN Image Classifier</h1>
+            <p class="header-subtitle">Classify household objects with AI - Professional Object Recognition System</p>
+        </div>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="main-container">
+        <!-- Left Panel: Upload -->
+        <div class="left-panel">
+            <div class="upload-section">
+                <h2>Upload Image</h2>
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-icon">📁</div>
+                    <div class="upload-text">Click to upload or drag & drop</div>
+                    <div class="upload-hint">PNG, JPG, GIF up to 16MB</div>
+                    <input type="file" id="imageInput" accept="image/*">
+                </div>
+                <div class="image-preview" id="imagePreview">
+                    <img id="previewImage" src="" alt="Preview">
+                </div>
+                <div class="loading" id="loading">
+                    <div class="spinner"></div>
+                    <div class="loading-text">Analyzing image...</div>
+                </div>
+                <div class="button-group" id="buttonGroup" style="display: none;">
+                    <button class="btn-primary" onclick="document.getElementById('imageInput').click()">
+                        📁 Upload Another
+                    </button>
+                    <button class="btn-secondary" onclick="resetForm()">
+                        🔄 Clear
+                    </button>
+                </div>
             </div>
-            
-            <div style="margin-bottom: 15px;">
-                <div style="color: #d63031; font-weight: 600; margin-bottom: 8px;">✅ Model Can Predict:</div>
-                <div class="remark-content" style="margin-bottom: 0;">
+        </div>
+        
+        <!-- Right Panel: Info & Results -->
+        <div class="right-panel">
+            <!-- Remark Card -->
+            <div class="info-card remark-card">
+                <div class="remark-title">
+                    <span class="remark-icon">⚠️</span>
+                    Model Capabilities & Limitations
+                </div>
+                
+                <div class="section-label">
+                    <span>✅</span> Model Can Predict:
+                </div>
+                <div class="remark-content">
                     This model is trained on only these 4 household objects:
                 </div>
-            </div>
-            
-            <div class="test-objects" style="margin-bottom: 15px;">
-                <div class="test-object">
-                    <span class="test-object-emoji">🍲</span>
-                    <span class="test-object-name">Cooking Pot</span>
+                <div class="test-objects">
+                    <div class="test-object">
+                        <span class="test-object-emoji">🍲</span>
+                        <span>Cooking Pot</span>
+                    </div>
+                    <div class="test-object">
+                        <span class="test-object-emoji">☕</span>
+                        <span>Cup</span>
+                    </div>
+                    <div class="test-object">
+                        <span class="test-object-emoji">🔪</span>
+                        <span>Knife</span>
+                    </div>
+                    <div class="test-object">
+                        <span class="test-object-emoji">✏️</span>
+                        <span>Pen</span>
+                    </div>
                 </div>
-                <div class="test-object">
-                    <span class="test-object-emoji">☕</span>
-                    <span class="test-object-name">Cup</span>
+                
+                <div class="divider"></div>
+                
+                <div class="section-label">
+                    <span>❌</span> Model Cannot Predict:
                 </div>
-                <div class="test-object">
-                    <span class="test-object-emoji">🔪</span>
-                    <span class="test-object-name">Knife</span>
-                </div>
-                <div class="test-object">
-                    <span class="test-object-emoji">✏️</span>
-                    <span class="test-object-name">Pen</span>
-                </div>
-            </div>
-            
-            <div style="border-top: 2px solid rgba(255, 107, 107, 0.3); padding-top: 12px;">
-                <div style="color: #d63031; font-weight: 600; margin-bottom: 8px;">❌ Model Cannot Predict:</div>
-                <div class="remark-content" style="margin-bottom: 0;">
+                <div class="remark-content">
                     Any other objects not listed above will produce inaccurate results. The model has not been trained on other items and may give misleading predictions.
                 </div>
             </div>
-        </div>
-        
-        <div class="error" id="error"></div>
-        
-        <div class="upload-area" id="uploadArea">
-            <div class="upload-icon">📁</div>
-            <div class="upload-text">Click to upload or drag and drop</div>
-            <div class="upload-hint">PNG, JPG, GIF up to 16MB</div>
-            <input type="file" id="imageInput" accept="image/*">
-        </div>
-        
-        <div class="image-preview" id="imagePreview">
-            <img id="previewImage" src="" alt="Preview">
-        </div>
-        
-        <div class="loading" id="loading">
-            <div class="spinner"></div>
-            <p>Classifying image...</p>
-        </div>
-        
-        <div class="result" id="result">
-            <div class="prediction" id="prediction"></div>
-            <div class="confidence">
-                Confidence: <span id="confidenceValue"></span>
+            
+            <!-- Error Message -->
+            <div class="error" id="error"></div>
+            
+            <!-- Result Card -->
+            <div class="result-card" id="result">
+                <div class="result-title">Classification Result</div>
+                <div class="prediction" id="prediction"></div>
+                <div class="confidence">
+                    <div class="confidence-label">Confidence Score</div>
+                    <div class="confidence-value" id="confidenceValue"></div>
+                </div>
+                <div class="confidence-bar">
+                    <div class="confidence-fill" id="confidenceFill"></div>
+                </div>
+                <div class="result-title" style="margin-top: 20px; margin-bottom: 12px;">All Predictions</div>
+                <div class="probabilities" id="probabilities"></div>
             </div>
-            <div class="confidence-bar">
-                <div class="confidence-fill" id="confidenceFill"></div>
-            </div>
-            <div class="probabilities" id="probabilities"></div>
+            
+            <div class="status" id="status"></div>
         </div>
-        
-        <div class="button-group" id="buttonGroup" style="display: none;">
-            <button class="btn-primary" onclick="document.getElementById('imageInput').click()">
-                📁 Upload Another
-            </button>
-            <button class="btn-secondary" onclick="resetForm()">
-                🔄 Clear
-            </button>
-        </div>
-        
-        <div class="status" id="status"></div>
     </div>
     
     <script>
@@ -454,12 +572,10 @@
             const file = imageInput.files[0];
             if (!file) return;
             
-            // Show preview
             const reader = new FileReader();
             reader.onload = (e) => {
                 previewImage.src = e.target.result;
                 imagePreview.style.display = 'block';
-                uploadArea.style.display = 'none';
                 classifyImage(file);
             };
             reader.readAsDataURL(file);
@@ -502,7 +618,6 @@
             document.getElementById('confidenceValue').textContent = `${confidence}%`;
             document.getElementById('confidenceFill').style.width = `${confidence}%`;
             
-            // Display all probabilities
             const probsHtml = Object.entries(data.probabilities)
                 .map(([name, prob]) => `
                     <div class="prob-item">
@@ -528,7 +643,6 @@
         function resetForm() {
             imageInput.value = '';
             imagePreview.style.display = 'none';
-            uploadArea.style.display = 'block';
             result.classList.remove('show');
             error.classList.remove('show');
             buttonGroup.style.display = 'none';
